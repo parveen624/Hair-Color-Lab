@@ -181,6 +181,76 @@
             color: var(--dark-color);
         }
 
+        /* Tools Section - NEW 3D STYLES */
+        .tools {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 
+                        0 6px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.15), 
+                        0 10px 10px rgba(0,0,0,0.12);
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106,76,147,0.1) 0%, rgba(248,180,0,0.1) 100%);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .tool-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .tool-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .tool-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .tool-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         /* Services Section */
         .section {
             padding: 4rem 0;
@@ -244,7 +314,7 @@
             margin-bottom: 1rem;
         }
 
-        /* About Section */
+        /* About Section - MODIFIED for full photo display */
         .about {
             background: var(--light-color);
         }
@@ -256,19 +326,25 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            padding: 0 20px;
+            padding: 2rem 20px;
         }
 
         .about-img {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            width: 100%;
+            height: auto;
         }
 
         .about-img img {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .about-content {
+            padding: 1rem;
         }
 
         .about-content h2 {
@@ -278,33 +354,9 @@
         }
 
         .about-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        /* Tools Section */
-        .tools {
-            text-align: center;
-        }
-
-        .tool-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .tool-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
             margin-bottom: 1rem;
-        }
-
-        .tool-card p {
-            margin-bottom: 2rem;
-            color: var(--text-light);
+            color: var(--text-color);
+            font-size: 0.95rem;
         }
 
         /* Testimonials */
@@ -511,6 +563,9 @@
 
             .about-img {
                 order: -1;
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
             }
 
             .ad-container.horizontal {
@@ -570,9 +625,9 @@
             <nav>
                 <ul id="mainMenu">
                     <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#tools">Color Tools</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#tools">Color Tools</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -603,6 +658,40 @@
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
+
+    <!-- Tools Section - MOVED ABOVE SERVICES -->
+    <section class="tools" id="tools">
+        <div class="section-title">
+            <h2>Professional Color Tools</h2>
+            <p>Interactive tools to help you achieve perfect hair color results</p>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-img" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="tool-content">
+                    <h3>Hair Color Mixer</h3>
+                    <p>Create perfect custom color formulas with our professional mixing tool</p>
+                    <a href="colourmixer.html" class="btn">Launch Tool</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-img" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="tool-content">
+                    <h3>Formula Calculator</h3>
+                    <p>Calculate precise color formulas based on your desired results</p>
+                    <a href="#" class="btn">Launch Tool</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-img" style="background-image: url('https://github.com/parveen624/Hair-Color-Lab/blob/23c00d6edde0dcd8747dd4fc299106a6e7db18be/image/edu%20image%20-%20Edited.png?raw=true');"></div>
+                <div class="tool-content">
+                    <h3>Color Wheel Guide</h3>
+                    <p>Interactive color wheel for understanding color theory and corrections</p>
+                    <a href="#" class="btn">Launch Tool</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section class="section" id="services">
@@ -652,11 +741,11 @@
         </script>
     </div>
 
-    <!-- About Section -->
+    <!-- About Section - MODIFIED for full photo display -->
     <section class="section about" id="about">
         <div class="about-container">
             <div class="about-img">
-                <img src="https://github.com/parveen624/Hair-Color-Lab/blob/23c00d6edde0dcd8747dd4fc299106a6e7db18be/image/parveen%20Image.jpg?raw=true"alt="Parveen Sir">
+                <img src="https://github.com/parveen624/Hair-Color-Lab/blob/23c00d6edde0dcd8747dd4fc299106a6e7db18be/image/parveen%20Image.jpg?raw=true" alt="Parveen Sir">
             </div>
             <div class="about-content">
                 <h2>About Parveen Sir</h2>
@@ -665,19 +754,6 @@
                 <p>His unique approach combines technical precision with artistic vision, ensuring beautiful, wearable color results that last.</p>
                 <a href="#" class="btn">Read Full Story</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Tools Section -->
-    <section class="section tools" id="tools">
-        <div class="section-title">
-            <h2>Professional Tools</h2>
-            <p>Advanced resources for hair color professionals</p>
-        </div>
-        <div class="tool-card">
-            <h3>Hair Color Mixer & Formulator</h3>
-            <p>Our professional-grade color mixing tool helps you create perfect custom formulas and predict results</p>
-            <a href="colourmixer.html" class="btn">Launch Color Mixer Tool</a>
         </div>
     </section>
 
@@ -749,7 +825,7 @@
         </script>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer Section - MODIFIED EMAIL FORM -->
     <footer id="contact">
         <div class="footer-container">
             <div class="footer-column">
@@ -766,9 +842,9 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#">Home</a></li>
+                    <li><a href="#tools">Color Tools</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#tools">Color Tools</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                 </ul>
             </div>
@@ -785,8 +861,8 @@
             <div class="footer-column">
                 <h3>Newsletter</h3>
                 <p>Subscribe for color trends, tips, and workshop announcements.</p>
-                <form>
-                    <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;">
+                <form action="https://formspree.io/f/info.haircolourlab@gmail.com" method="POST">
+                    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;">
                     <button type="submit" style="background: var(--accent-color); color: var(--dark-color); border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Subscribe</button>
                 </form>
             </div>
